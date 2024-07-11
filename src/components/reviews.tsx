@@ -1,14 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import clsx from 'clsx';
-import {
-  motion,
-  useAnimationFrame,
-  useInView,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
-
+import { useInView } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 
 interface ReviewType {
@@ -17,6 +9,7 @@ interface ReviewType {
   body: string;
   author: string;
   rating: number;
+  id?: string;
 }
 
 interface StarRatingProps {
@@ -46,7 +39,7 @@ interface ReviewsProps {
   reviews: ReviewType[];
 }
 
-function StarIcon(props: React.SVGProps<SVGSVGElement>) {
+function StarIcon(props: Readonly<React.SVGProps<SVGSVGElement>>) {
   return (
     <svg viewBox='0 0 20 20' aria-hidden='true' {...props}>
       <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
@@ -54,7 +47,7 @@ function StarIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function StarRating({ rating }: StarRatingProps) {
+function StarRating({ rating }: Readonly<StarRatingProps>) {
   return (
     <div className='flex'>
       {[...Array(5).keys()].map((index) => (
@@ -77,7 +70,7 @@ function Review({
   rating,
   className,
   ...props
-}: ReviewProps) {
+}: Readonly<ReviewProps>) {
   let animationDelay = useMemo(() => {
     let possibleAnimationDelays = [
       '0s',
@@ -132,7 +125,7 @@ function ReviewColumn({
   reviews,
   reviewClassName = () => '',
   msPerPixel = 0,
-}: ReviewColumnProps) {
+}: Readonly<ReviewColumnProps>) {
   let columnRef = useRef<HTMLDivElement>(null);
   let [columnHeight, setColumnHeight] = useState(0);
   let duration = `${columnHeight * msPerPixel}ms`;
@@ -161,7 +154,7 @@ function ReviewColumn({
     >
       {reviews.concat(reviews).map((review, reviewIndex) => (
         <Review
-          key={reviewIndex}
+          key={review.id}
           aria-hidden={reviewIndex >= reviews.length}
           className={reviewClassName(reviewIndex % reviews.length)}
           {...review}
@@ -171,7 +164,7 @@ function ReviewColumn({
   );
 }
 
-function ReviewGrid({ reviews }: ReviewGridProps) {
+function ReviewGrid({ reviews }: Readonly<ReviewGridProps>) {
   let containerRef = useRef<HTMLDivElement>(null);
   let isInView = useInView(containerRef, { once: true, amount: 0.4 });
   let columns = splitArray(reviews, 3);
@@ -217,7 +210,7 @@ function ReviewGrid({ reviews }: ReviewGridProps) {
   );
 }
 
-export function Reviews({ reviews }: ReviewsProps) {
+export function Reviews({ reviews }: Readonly<ReviewsProps>) {
   return (
     <section
       id='reviews'

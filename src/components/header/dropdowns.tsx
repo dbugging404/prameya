@@ -8,6 +8,8 @@ import {
 } from '@headlessui/react';
 import { HiChevronDown } from 'react-icons/hi2';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import React from 'react';
+import Link from 'next/link';
 
 export const Dropdowns = () => {
   return (
@@ -41,7 +43,7 @@ export const Dropdowns = () => {
                         </DisclosureButton>
                         <DisclosurePanel className={`mt-2 space-y-2`}>
                           {option.options.map((subOption) => (
-                            <a
+                            <Link
                               key={subOption.label}
                               className='block rounded-lg p-2 transition hover:bg-black/10 focus:bg-black/10 focus:outline-none dark:hover:bg-white/10 dark:focus:bg-white/10'
                               href='#'
@@ -52,23 +54,25 @@ export const Dropdowns = () => {
                                 </div>
                                 <div>{subOption.label}</div>
                               </div>
-                            </a>
+                            </Link>
                           ))}
                         </DisclosurePanel>
                       </Disclosure>
                     ) : (
                       <div>
-                        <a
+                        <Link
                           className='block rounded-lg p-2 transition hover:bg-black/10 focus:bg-black/10 focus:outline-none dark:hover:bg-white/10 dark:focus:bg-white/10'
                           href='#'
                         >
-                          <p className='font-semi text-sm text-zinc-800 dark:text-zinc-200'>
-                            {option.label}
-                          </p>
-                          <p className='text-xs text-black/50 dark:text-white/50'>
-                            {option.description}
-                          </p>
-                        </a>
+                          <>
+                            <p className='font-semi text-sm text-zinc-800 dark:text-zinc-200'>
+                              {option.label}
+                            </p>
+                            <p className='text-xs text-black/50 dark:text-white/50'>
+                              {option.description}
+                            </p>
+                          </>
+                        </Link>
                       </div>
                     )}
                   </div>

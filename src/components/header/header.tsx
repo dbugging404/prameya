@@ -5,7 +5,7 @@ import {
   DisclosurePanel,
 } from '@headlessui/react';
 import Image from 'next/image';
-import { HiBell, HiMenu, HiX, HiPhone } from 'react-icons/hi';
+import { HiMenu, HiX, HiPhone } from 'react-icons/hi';
 import { Container } from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import { Dropdowns } from './dropdowns';
