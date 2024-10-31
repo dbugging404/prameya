@@ -1,16 +1,17 @@
-import ThemeToggle from '@/components/theme-toggle';
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react';
 import Image from 'next/image';
-import { HiMenu, HiX, HiPhone } from 'react-icons/hi';
-import { Container } from '@/components/ui/Container';
-import Button from '@/components/ui/Button';
-import { Dropdowns } from './dropdowns';
 import Link from 'next/link';
-import { MobileDropdowns } from './mobileDropdowns';
+import { HiMenu, HiX, HiPhone } from 'react-icons/hi';
+import ThemeToggle from '@/components/theme-toggle';
+import { Container } from '@/components/ui/container';
+import { Dropdowns } from '@/components/header/dropdowns';
+import { MobileDropdowns } from '@/components/header/mobileDropdowns';
+import Button from '@/components/ui/button';
+import Logo from '@/assets/Prameya.svg';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
@@ -36,7 +37,7 @@ const Header = () => {
                       />
                       <Image
                         className='hidden h-12 w-auto lg:block'
-                        src='https://prameyahealth.com/wp-content/uploads/2021/09/PrameyaLogo.png'
+                        src={Logo}
                         alt='Workflow'
                         width={500}
                         height={500}

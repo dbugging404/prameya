@@ -1,8 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { AppProps } from 'next/app';
 import '../styles/globals.css';
-import Layout from '@/components/ui/Layout';
+import Layout from '@/components/ui/layout';
 import Header from '@/components/header/header';
+import Footer from '@/components/footer';
 
 function usePrevious(value: any) {
   let ref = useRef();
@@ -26,6 +27,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <div className={`relative`}>
         <Header />
         <Component previousPathname={previousPathname} {...pageProps} />
+        <Footer />
       </div>
     </Layout>
   );

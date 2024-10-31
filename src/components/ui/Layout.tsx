@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import ThemeProvider from '@/components/ui/ThemeProvider';
-import { ThemeProvider as MaterialTheme } from '@material-tailwind/react';
+import ThemeProvider from '@/components/ui/themeProvider';
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,13 +7,11 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <MaterialTheme>
-      <ThemeProvider attribute='class'>
-        <main className={`min-h-screen bg-zinc-100 dark:bg-zinc-950`}>
-          {children}
-        </main>
-      </ThemeProvider>
-    </MaterialTheme>
+    <ThemeProvider attribute='class'>
+      <main className={`min-h-screen bg-zinc-100 dark:bg-zinc-950`}>
+        {children}
+      </main>
+    </ThemeProvider>
   );
 };
 

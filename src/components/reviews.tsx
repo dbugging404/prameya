@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
-import { Container } from '@/components/ui/Container';
+import { Container } from '@/components/ui/container';
 
 interface ReviewType {
   length?: number;

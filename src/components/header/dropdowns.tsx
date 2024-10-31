@@ -23,7 +23,7 @@ export const Dropdowns = () => {
             <PopoverPanel
               anchor='bottom'
               transition
-              className='absolute mt-6 w-72 divide-y divide-black/5 rounded-xl border border-white bg-zinc-50 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0 dark:divide-white/5 dark:border dark:border-black/10 dark:bg-zinc-900'
+              className='absolute mt-6 w-72 divide-y divide-black/5 rounded-xl border border-black/10 bg-zinc-50 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0 dark:divide-white/5 dark:border dark:border-white/10 dark:bg-zinc-900'
             >
               <div className=''>
                 {item?.options?.map((option) => (
@@ -46,7 +46,7 @@ export const Dropdowns = () => {
                             <Link
                               key={subOption.label}
                               className='block rounded-lg p-2 transition hover:bg-black/10 focus:bg-black/10 focus:outline-none dark:hover:bg-white/10 dark:focus:bg-white/10'
-                              href='#'
+                              href={'#'}
                             >
                               <div className='ml-6 flex items-center justify-start space-x-4 text-xs text-zinc-800 dark:text-zinc-200'>
                                 <div>
@@ -62,7 +62,7 @@ export const Dropdowns = () => {
                       <div>
                         <Link
                           className='block rounded-lg p-2 transition hover:bg-black/10 focus:bg-black/10 focus:outline-none dark:hover:bg-white/10 dark:focus:bg-white/10'
-                          href='#'
+                          href={option?.link}
                         >
                           <>
                             <p className='font-semi text-sm text-zinc-800 dark:text-zinc-200'>
@@ -93,16 +93,19 @@ const navBar = [
       {
         label: 'Sahai',
         description: 'Cancer Support Group',
+        link: '/cancer-support-group',
         options: [],
       },
       {
         label: 'Certification Program',
         description: 'For Cancer Support Group',
+        link: '/certification-programs',
         options: [],
       },
       {
         label: 'Products',
         description: 'For Cancer Support Group',
+        link: '/products',
         options: [],
       },
     ],
@@ -113,11 +116,13 @@ const navBar = [
       {
         label: 'PranaSakhi',
         description: 'Women Wellness Program',
+        link: '/pranasakhi',
         options: [],
       },
       {
         label: 'Focus Areas',
         description: 'of Women Wellness Program',
+        link: '/focus-areas',
         options: [],
       },
     ],
@@ -128,13 +133,16 @@ const navBar = [
       {
         label: 'Allopathy',
         description: 'the treatment of disease by conventional means',
+        link: '#',
         options: [
           {
             label: 'Learn More',
+            link: '/allopathy',
             options: [],
           },
           {
             label: 'Consultation',
+            link: '/consultation',
             options: [],
           },
         ],
@@ -142,17 +150,21 @@ const navBar = [
       {
         label: 'Ayurveda',
         description: 'a system of traditional medicine',
+        link: '#',
         options: [
           {
             label: 'Learn More',
+            link: '/ayurveda',
             options: [],
           },
           {
             label: 'Consultation',
+            link: '/consultation',
             options: [],
           },
           {
             label: 'Therapies',
+            link: '/therapies',
             options: [],
           },
         ],
@@ -161,17 +173,21 @@ const navBar = [
         label: 'Naturopathy',
         description:
           'focuses on using traditional practices alongside conventional medicine.',
+        link: '#',
         options: [
           {
             label: 'Learn',
+            link: '/naturopathy',
             options: [],
           },
           {
             label: 'Consultation',
+            link: '/consultation',
             options: [],
           },
           {
             label: 'Therapies',
+            link: '/therapies',
             options: [],
           },
         ],
@@ -184,16 +200,31 @@ const navBar = [
       {
         label: 'Reclaiming Women Wellness',
         description: 'Corporate Program',
+        link: '/reclaim',
         options: [],
       },
     ],
   },
   {
     label: 'Yoga',
-    options: [],
+    options: [
+      {
+        label: 'Yoga for Women',
+        description: 'Yoga for Womens health',
+        link: '/yoga-for-women',
+        options: [],
+      },
+    ],
   },
   {
     label: 'Resources',
-    options: [],
+    options: [
+      {
+        label: 'Blog',
+        description: 'Read our latest articles',
+        link: '/blogs/page/1',
+        options: [],
+      },
+    ],
   },
 ];

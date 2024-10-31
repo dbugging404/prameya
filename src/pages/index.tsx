@@ -1,6 +1,7 @@
 import CarouselComponent from '@/components/carousel';
 import { Reviews } from '@/components/reviews';
-import { Container } from '@/components/ui/Container';
+import { Container } from '@/components/ui/container';
+import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { NextPage } from 'next';
 import React from 'react';
 
@@ -9,6 +10,7 @@ const IndexPage: NextPage = () => {
     <Container>
       <CarouselComponent />
       <Reviews reviews={reviews} />
+      <Breadcrumbs link1='/Link1' title1='Title1' />
     </Container>
   );
 };
